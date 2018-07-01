@@ -17,10 +17,31 @@ cd zombrox_infra
 ############################################################################################
 
 # gCloud command that create instance with local file startUp script
-gcloud compute instances create reddit-app  --boot-disk-size=10GB   --image-family ubuntu-1604-lts   --image-project=ubuntu-os-cloud   --machine-type=g1-small   --tags puma-server --restart-on-failure --zone europe-west1-d --metadata-from-file startup-script=startUp.sh
+gcloud compute instances create reddit-app\
+ --boot-disk-size=10GB \
+ --image-family ubuntu-1604-lts \
+ --image-project=ubuntu-os-cloud \
+ --machine-type=g1-small \
+ --tags puma-server \
+ --restart-on-failure \
+ --zone europe-west1-d \
+ --metadata-from-file startup-script=startUp.sh
 
 # gCloud command that create instance with URL file startUp script
-gcloud compute instances create reddit-app  --boot-disk-size=10GB   --image-family ubuntu-1604-lts   --image-project=ubuntu-os-cloud   --machine-type=g1-small   --tags puma-server --restart-on-failure --zone europe-west1-d --metadata startup-script-url=gs://zombrox_infra/startUp.sh
+gcloud compute instances create reddit-app\
+ --boot-disk-size=10GB \
+ --image-family ubuntu-1604-lts \
+ --image-project=ubuntu-os-cloud \
+ --machine-type=g1-small \
+ --tags puma-server \
+ --restart-on-failure \
+ --zone europe-west1-d \
+ --metadata startup-script-url=gs://zombrox_infra/startUp.sh
 
 # gCloud command that create fireWall rule
-gcloud compute firewall-rules create puma-server --direction=in --action=allow --target-tags=puma-server --source-ranges=0.0.0.0/0 --rules=tcp:9292  
+gcloud compute firewall-rules create puma-server\
+ --direction=in \
+ --action=allow \
+ --target-tags=puma-server \
+ --source-ranges=0.0.0.0/0 \
+ --rules=tcp:9292  
