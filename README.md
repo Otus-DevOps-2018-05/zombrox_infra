@@ -1,7 +1,7 @@
 # zombrox_infra
 zombrox Infra repository
 
-testapp_IP=35.240.78.151
+testapp_IP=35.189.210.104
 testapp_port=9292
 
 ############################################################################################
