@@ -1,31 +1,47 @@
 # zombrox_infra
 zombrox Infra repository
 
-cat <<EOF >> ~/.ssh/config
+testapp_IP=35.189.210.104
+testapp_port=9292
 
-Host bastion
-Hostname 35.206.171.215
-Port 22
-User appuser
-IdentityFile ~/.ssh/appuser
-ForwardAgent yes
+############################################################################################
+# startUp script content... :)
+ 
+#!/bin/bash
+git clone --branch cloud-testapp https://github.com/Otus-DevOps-2018-05/zombrox_infra.git
+cd zombrox_infra
+./install_ruby.sh 
+./install_mongodb.sh
+./deploy.sh 
 
-Host someinternalhost
-Hostname 10.132.0.3
-User appuser
-ProxyCommand ssh -W %h:%p bastion
+############################################################################################
 
-EOF
+# gCloud command that create instance with local file startUp script
+gcloud compute instances create reddit-app\
+ --boot-disk-size=10GB \
+ --image-family ubuntu-1604-lts \
+ --image-project=ubuntu-os-cloud \
+ --machine-type=g1-small \
+ --tags puma-server \
+ --restart-on-failure \
+ --zone europe-west1-d \
+ --metadata-from-file startup-script=startUp.sh
 
-cat <<EOF >> ~/.bashrc
-alias someinternalhost='ssh someinternalhost'
+# gCloud command that create instance with URL file startUp script
+gcloud compute instances create reddit-app\
+ --boot-disk-size=10GB \
+ --image-family ubuntu-1604-lts \
+ --image-project=ubuntu-os-cloud \
+ --machine-type=g1-small \
+ --tags puma-server \
+ --restart-on-failure \
+ --zone europe-west1-d \
+ --metadata startup-script-url=gs://zombrox_infra/startUp.sh
 
-EOF
-
-
-#Соединяемся с someinternalhost одной командой
-someinternalhost
-
-bastion_IP = 35.206.171.215
-someinternalhost_IP = 10.132.0.3
-
+# gCloud command that create fireWall rule
+gcloud compute firewall-rules create puma-server\
+ --direction=in \
+ --action=allow \
+ --target-tags=puma-server \
+ --source-ranges=0.0.0.0/0 \
+ --rules=tcp:9292  

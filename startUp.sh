@@ -1,0 +1,6 @@
+#!/bin/bash
+git clone --branch cloud-testapp https://github.com/Otus-DevOps-2018-05/zombrox_infra.git
+cd zombrox_infra
+./install_ruby.sh 
+./install_mongodb.sh
+./deploy.sh
