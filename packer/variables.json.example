@@ -1,6 +1,5 @@
 {
   "project_id": "infra",
-  "machine_type": "typeOfmachine",
   "source_img_family": "ubuntu-xx"
 }
 

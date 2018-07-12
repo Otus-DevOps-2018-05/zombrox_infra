@@ -1,9 +1,9 @@
 {
     "variables":{
-      "project_id": "",
+      "project_id": "null",
       "machine_type": "f1-micro",
       "img_description": "Ubuntu 16.04 with Mongo and Ruby",
-      "source_img_family": "",
+      "source_img_family": "null",
       "network_name": "default",
       "disk_size": "10",
       "disk_type": "pd-standard",

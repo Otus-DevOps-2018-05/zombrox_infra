@@ -19,4 +19,3 @@ sudo  chmod 644 /etc/systemd/system/puma.service
 
 sudo systemctl daemon-reload
 sudo systemctl enable puma
-sudo systemctl start puma
