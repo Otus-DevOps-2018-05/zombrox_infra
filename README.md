@@ -13,9 +13,9 @@ Homework #5
 
 Для использования надо:
 
-- Запустить packer build -var-file=variables.json ubuntu16.json - для создания базового образа
-- Запустить packer build -var-file=immutable_var.json immutable.json - для создания образра с приложением
-- Запустить create-reddit-vm.sh для создания виртуальной машины на основе полного образа
+- Выполнить в директории packer команду packer build -var-file=variables.json ubuntu16.json - для создания базового образа
+- Выполнить в директории packer команду packer build -var-file=immutable_var.json immutable.json - для создания образра с приложением
+- Запустить в директории config-scripts скрипт create-reddit-vm.sh для создания виртуальной машины на основе полного образа
 
 
 
