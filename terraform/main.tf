@@ -53,7 +53,7 @@ resource "google_compute_firewall" "firewall_puma" {
   # Название сети, в которой действует правило
   network = "default"
 
-  # Какой доступ разрешть
+  # Какой доступ разрешить
   allow {
     protocol = "tcp"
     ports    = ["9292"]
