@@ -4,11 +4,20 @@ provider "google" {
   region  = "${var.region}"
 }
 
+resource "google_compute_project_metadata" "default" {
+  metadata {
+    ssh-keys = "appuser:${file(var.public_key_path)} appuser1:${file(var.public_key_path)} appuser2:${file(var.public_key_path)}"
+
+    #project  = "${var.project}"
+  }
+}
+
 resource "google_compute_instance" "app" {
-  name         = "reddit-app"
+  name         = "reddit-app-${count.index}"
   machine_type = "g1-small"
   zone         = "${var.zone}"
   tags         = ["reddit-app"]
+  count        = "${var.number_of_instances}"
 
   # определение загрузочного диска
   boot_disk {
