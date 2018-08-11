@@ -5,3 +5,4 @@ immutable_var.json
 *.tfstate.backup
 *.tfvars
 .terraform/
+*.retry
