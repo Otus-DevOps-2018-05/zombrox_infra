@@ -19,13 +19,13 @@ Homework #9
 
 - Установка БД и приложения одним плейбуком: ansible-playbook site.yml
 
-- Установка приложения плебуком с единым сценарием: ansible-playbook reddit_app_one_play.yml --limit app --tags app-tag
-- Установка БД плебуком с единым сценарием: ansible-playbook reddit_app_one_play.yml --limit db --tags db-tag
-- Деплой плебуком с единым сценарием: ansible-playbook reddit_app_one_play.yml --limit app --tags deploy-tag
+- Установка приложения плейбуком с единым сценарием: ansible-playbook reddit_app_one_play.yml --limit app --tags app-tag
+- Установка БД плейбуком с единым сценарием: ansible-playbook reddit_app_one_play.yml --limit db --tags db-tag
+- Деплой плейбуком с единым сценарием: ansible-playbook reddit_app_one_play.yml --limit app --tags deploy-tag
 
-- Установка приложения плебуком с раздельными сценариями: ansible-playbook reddit_app_multiple_plays.yml --tags app-tag
-- Установка БД плебуком с раздельными сценариями: ansible-playbook reddit_app_multiple_plays.yml --tags db-tag
-- Деплой плебуком с раздельными сценариями: ansible-playbook reddit_app_multiple_plays.yml --tags deploy-tag
+- Установка приложения плейбуком с раздельными сценариями: ansible-playbook reddit_app_multiple_plays.yml --tags app-tag
+- Установка БД плейбуком с раздельными сценариями: ansible-playbook reddit_app_multiple_plays.yml --tags db-tag
+- Деплой плейбуком с раздельными сценариями: ansible-playbook reddit_app_multiple_plays.yml --tags deploy-tag
 
 Как проверить работоспособность:
 - В адресной строке браузера перейти на http://ip-address-of-app:9292
