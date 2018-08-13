@@ -1,6 +1,38 @@
 # zombrox_infra
 zombrox Infra repository
 
+Homework #9
+
+Что сделано :
+- Написан плейбук с одним сценарием для настройки инстансов с mongodb и приложением, разделенный при помощи тегов
+- Написан шаблон когфига для mongodb
+- Написан EnvironmentFile содержащий парамтр для подключения к BD
+- Ранее написаный плейбук разбит на отдельные сценарии
+- На основе плейбука с разделенными сценариями написаны 3 раздельных плейбука
+- Написан плейбук объединяющий 3 ранее написанных раздельных плейбука
+- Написаны плейбуки для провижена в Packer
+
+Как запустить проект:
+
+- Создание базового образа для приложения: packer build -var-file=packer/variables.json packer/app.json
+- Создание базового образа для БД : packer build -var-file=packer/variables.json packer/db.json
+
+- Установка БД и приложения одним плейбуком: ansible-playbook site.yml
+
+- Установка приложения плейбуком с единым сценарием: ansible-playbook reddit_app_one_play.yml --limit app --tags app-tag
+- Установка БД плейбуком с единым сценарием: ansible-playbook reddit_app_one_play.yml --limit db --tags db-tag
+- Деплой плейбуком с единым сценарием: ansible-playbook reddit_app_one_play.yml --limit app --tags deploy-tag
+
+- Установка приложения плейбуком с раздельными сценариями: ansible-playbook reddit_app_multiple_plays.yml --tags app-tag
+- Установка БД плейбуком с раздельными сценариями: ansible-playbook reddit_app_multiple_plays.yml --tags db-tag
+- Деплой плейбуком с раздельными сценариями: ansible-playbook reddit_app_multiple_plays.yml --tags deploy-tag
+
+Как проверить работоспособность:
+- В адресной строке браузера перейти на http://ip-address-of-app:9292
+
+
+#######################################################################################
+
 Homework #8
 
 Что сделано :
