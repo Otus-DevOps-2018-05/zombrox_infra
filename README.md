@@ -1,6 +1,24 @@
 # zombrox_infra
 zombrox Infra repository
 
+Homework #10
+
+Что сделано :
+- созданы 2 роли для развертывания инстансов с приложением и БД
+- описаны 2 окружения prod и stage
+- испозована комюнити роль jdauphant.nginx для настройки proxy pass на app инстансах
+
+Как запустить проект:
+
+- для развертывания prod окружения запустить: ansible-playbook -i environments/prod/inventory playbooks/site.yml
+- для развертывания stage окружения запустить: ansible-playbook playbooks/site.yml
+
+Как проверить работоспособность:
+
+- В адресной строке браузера перейти на http://ip-address-of-app
+
+#######################################################################################
+
 Homework #9
 
 Что сделано :
@@ -19,13 +37,13 @@ Homework #9
 
 - Установка БД и приложения одним плейбуком: ansible-playbook site.yml
 
-- Установка приложения плейбуком с единым сценарием: ansible-playbook reddit_app_one_play.yml --limit app --tags app-tag
-- Установка БД плейбуком с единым сценарием: ansible-playbook reddit_app_one_play.yml --limit db --tags db-tag
-- Деплой плейбуком с единым сценарием: ansible-playbook reddit_app_one_play.yml --limit app --tags deploy-tag
+- Установка приложения плебуком с единым сценарием: ansible-playbook reddit_app_one_play.yml --limit app --tags app-tag
+- Установка БД плебуком с единым сценарием: ansible-playbook reddit_app_one_play.yml --limit db --tags db-tag
+- Деплой плебуком с единым сценарием: ansible-playbook reddit_app_one_play.yml --limit app --tags deploy-tag
 
-- Установка приложения плейбуком с раздельными сценариями: ansible-playbook reddit_app_multiple_plays.yml --tags app-tag
-- Установка БД плейбуком с раздельными сценариями: ansible-playbook reddit_app_multiple_plays.yml --tags db-tag
-- Деплой плейбуком с раздельными сценариями: ansible-playbook reddit_app_multiple_plays.yml --tags deploy-tag
+- Установка приложения плебуком с раздельными сценариями: ansible-playbook reddit_app_multiple_plays.yml --tags app-tag
+- Установка БД плебуком с раздельными сценариями: ansible-playbook reddit_app_multiple_plays.yml --tags db-tag
+- Деплой плебуком с раздельными сценариями: ansible-playbook reddit_app_multiple_plays.yml --tags deploy-tag
 
 Как проверить работоспособность:
 - В адресной строке браузера перейти на http://ip-address-of-app:9292
