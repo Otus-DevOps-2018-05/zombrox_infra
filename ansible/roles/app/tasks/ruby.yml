@@ -1,0 +1,18 @@
+---
+- name: Update system
+  apt:
+    update_cache: yes
+    upgrade: dist
+    autoremove: yes
+    force_apt_get: yes
+  tags: ruby
+
+- name: Install packages
+  apt:
+    name: "{{item}}"
+    force_apt_get: yes
+  with_items:
+    - ruby-full
+    - ruby-bundler
+    - build-essential
+  tags: ruby
