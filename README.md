@@ -4,14 +4,33 @@ zombrox Infra repository
 Homework #11
 
 Что сделано :
-- 
+- Установлен Vagrant
+- Написан Vagrantfile
+- Доработаны роли для использования в Vagrant и Packer
+- Написан шаблон unit файла для puma
+- Установлена Molecule
+- Написаны тесты для проверки того как работают роль db и плейбуки, в.ч. проверка открытого порта MongoDB
+- роли db и app использованы в плейбуках для packer
+- в шаблоны packer внесены изменения для использования тегов, а так же для передачи путей к ролям 
 Как запустить проект:
 
-- 
+- в ansible/ запустить команду vagrant up для простого разворачивая 2 виртуалок с БД и приложением
+- для установки Molecule:
+  установить virtualenv(sudo pip install virtualenv) и virtualenv wrappers(pip install virtualenvwrapper)
+  создать virtualenv (mkvirtualenv ansible-4)
+  перейти в созданный virtualenv (workon ansible-4) (для освежения памяти https://python-scripts.com/virtualenv)
+  выполнить pip install -r requirements.txt в ansible/ 
+  
+- запустить команду molecule create в ansible/roles/db для создания VM для проверки роли
+- запустить команду molecule list в ansible/roles/db для просмотра инстансов управляемых Molecule
+- запустить команду molecule login -h <instance_name> в ansible/roles/db для логина в созданный инстанс
+- запустить команду molecule converge в ansible/roles/db для запуска плебука с вызовом проверяемой роли
+- запустить команду molecule verify в ansible/roles/db для запуска тестов
+- запустить команду molecule destroy в ansible/roles/db для удаления созданных Molecule инстансов
 
 Как проверить работоспособность:
 
-- 
+- - В адресной строке браузера перейти на http://10.10.10.20:9292/
 
 #######################################################################################
 
