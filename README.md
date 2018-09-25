@@ -1,6 +1,24 @@
 # zombrox_infra
 zombrox Infra repository
 
+Homework #10
+
+Что сделано :
+- созданы 2 роли для развертывания инстансов с приложением и БД
+- описаны 2 окружения prod и stage
+- использована комюнити роль jdauphant.nginx для настройки proxy pass на app инстансах
+
+Как запустить проект:
+
+- для развертывания prod окружения запустить: ansible-playbook -i environments/prod/inventory playbooks/site.yml
+- для развертывания stage окружения запустить: ansible-playbook playbooks/site.yml
+
+Как проверить работоспособность:
+
+- В адресной строке браузера перейти на http://ip-address-of-app
+
+#######################################################################################
+
 Homework #9
 
 Что сделано :
